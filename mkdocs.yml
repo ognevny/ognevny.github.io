@@ -1,0 +1,66 @@
+site_name: ognevny.page
+site_description: Page of ognevny
+docs_dir: web/
+theme:
+  font: false
+  name: material
+  logo: "avatar.png"
+  favicon: "avatar.png"
+  palette:
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+    - scheme: default
+      media: "(prefers-color-scheme: light)"
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+      primary: "deep purple"
+      accent: "deep purple"
+    - scheme: slate
+      media: "(prefers-color-scheme: dark)"
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
+      primary: "deep purple"
+      accent: "deep purple"
+
+  features:
+    - navigation.instant
+    - content.action.edit
+    - content.code.copy
+
+  custom_dir: overrides
+
+plugins:
+  - search
+  - privacy
+
+extra:
+  social:
+    - icon: "fontawesome/brands/github"
+      link: "https://github.com/ognevny"
+    - icon: "fontawesome/brands/telegram"
+      link: "https://t.me/ognevny"
+    - icon: "fontawesome/brands/discord"
+      link: "https://discord.gg/ognevny"
+    - icon: "fontawesome/brands/vk"
+      link: "https://vk.com/ognevny"
+    - icon: "fontawesome/brands/bluesky"
+      link: "https://bsky.app/profile/ognevny.bsky.social"
+    - icon: "fontawesome/brands/mastodon"
+      link: "https://fosstodon.org/@ognevnydemon"
+
+site_url: https://ognevny.github.io
+repo_url: https://github.com/ognevny/ognevny.github.io
+edit_uri: edit/main/web/
+
+nav:
+  - "Home": index.md
+  - Abouts:
+      - abouts/whoami.md
+  - Русский:
+      - ru.md
+      - Обо мне:
+          - ru/abouts/whoami.md

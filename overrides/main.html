@@ -1,0 +1,31 @@
+{% extends "base.html" %} {% block extrahead %} {% set title = config.site_name%} {% if page and
+page.meta and page.meta.title %} {% set title = title ~ " - " ~ page.meta.title %} {% elif page and
+page.title and not page.is_homepage %} {% set title = title ~ " - " ~ page.title | striptags %} {%
+endif %}
+<meta property="og:type" content="website" />
+<meta property="og:title" content="{{ title }}" />
+{%- if page.is_homepage %}
+<meta property="og:description" content="{{ config.site_description }}" />
+{% else %}{%- if page %}
+<meta property="og:description" content="{{ page.meta.summary }}" />
+{% endif %}{% endif %}
+<meta property="og:url" content="{{ page.canonical_url }}" />
+<script type="application/ld+json">
+    {
+        "image": "https://ognevny.github.io/avatar.png",
+        "@type": "WebSite",
+        "headline": "ognevny.page",
+        "publisher": {
+            "@type": "Person",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://ognevny.github.io/avatar.png"
+            }
+        },
+        "url": "https://ognevny.github.io",
+        "description": "GitHub page hosted for ognevny",
+        "name": "ognevny.page",
+        "@context": "https://schema.org"
+    }
+</script>
+{% endblock %}

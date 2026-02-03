@@ -1,9 +1,3 @@
----
-layout: default
-title: "About"
-permalink: /about
----
-
 # About me
 
 I'm Maksim, living at Moscow, studying in MAI, employeed
