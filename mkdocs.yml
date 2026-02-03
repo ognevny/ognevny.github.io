@@ -32,7 +32,6 @@ theme:
   custom_dir: overrides
 
 plugins:
-  - search
   - privacy
 
 extra_css:
