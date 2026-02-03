@@ -1,5 +1,6 @@
 ---
 layout: page
+theme: jekyll-theme-minimal
 title: "Обо мне"
 permalink: /ru/about
 ---
