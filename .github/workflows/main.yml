@@ -1,0 +1,49 @@
+name: github pages
+
+on:
+  workflow_dispatch:
+  pull_request:
+  push:
+
+permissions: {}
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          persist-credentials: false
+
+      - name: Setup python
+        uses: actions/setup-python@v6
+        with:
+          python-version-file: "pyproject.toml"
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v7
+
+      - run: uv run mkdocs build
+
+      - name: Upload for pages
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: ./site
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-24.04
+    needs: build
+    concurrency: ci-${{ github.ref }}
+    permissions:
+      pages: write
+      id-token: write
+    if: github.repository != 'ognevny/ognevny.github.io' || (github.event_name != 'pull_request' && github.ref == 'refs/heads/main')
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
