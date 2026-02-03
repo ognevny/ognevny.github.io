@@ -16,15 +16,13 @@ theme:
       toggle:
         icon: material/brightness-7
         name: Switch to dark mode
-      primary: "deep purple"
-      accent: "deep purple"
+      primary: custom
     - scheme: slate
       media: "(prefers-color-scheme: dark)"
       toggle:
         icon: material/brightness-4
         name: Switch to system preference
-      primary: "deep purple"
-      accent: "deep purple"
+      primary: custom
 
   features:
     - navigation.instant
@@ -34,8 +32,10 @@ theme:
   custom_dir: overrides
 
 plugins:
-  - search
   - privacy
+
+extra_css:
+  - "stylesheets/extra.css"
 
 extra:
   social:
