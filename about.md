@@ -1,6 +1,5 @@
 ---
-layout: page
-theme: jekyll-theme-minimal
+layout: default
 title: "About"
 permalink: /about
 ---
