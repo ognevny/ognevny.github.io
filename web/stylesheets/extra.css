@@ -1,11 +1,35 @@
-[data-md-color-scheme="default"] {
+:root {
+    /* fallback / default */
     --md-primary-fg-color: #c8a2c8;
     --md-primary-fg-color--light: #c8a2c8;
     --md-primary-fg-color--dark: #c8a2c8;
 }
 
+/* Light / default scheme */
+[data-md-color-scheme="default"] {
+    --md-sys-color-primary: var(--md-primary-fg-color);
+    --md-primary-fg-color: #c8a2c8;
+    --md-primary-fg-color--light: #c8a2c8;
+    --md-primary-fg-color--dark: #c8a2c8;
+}
+
+/* Slate (dark-ish) scheme */
 [data-md-color-scheme="slate"] {
+    --md-sys-color-primary: var(--md-primary-fg-color);
     --md-primary-fg-color: #b582b5;
     --md-primary-fg-color--light: #b582b5;
     --md-primary-fg-color--dark: #b582b5;
+}
+
+/* Ensure links, accents use primary */
+.md-nav__link,
+a,
+.md-sidebar--primary .md-nav__link--active,
+.md-header nav a {
+    color: var(--md-primary-fg-color);
+}
+
+a:hover,
+.md-nav__link:hover {
+    color: color-mix(in srgb, var(--md-primary-fg-color) 80%, black 20%);
 }
